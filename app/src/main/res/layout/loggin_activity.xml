@@ -7,15 +7,15 @@
     tools:context=".Activitys.LogginActivity">
 
     <EditText
-        android:id="@+id/txtPassWord"
+        android:id="@+id/txtPassWordLog"
         android:layout_width="@dimen/txt_width"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="84dp"
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtEmailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/txtUserNameLog" />
 
     <Button
         android:id="@+id/button"
@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="60dp"
         android:text="Entrar"
+        android:onClick="logar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -35,7 +36,7 @@
         android:layout_marginTop="44dp"
         android:text="Ainda não é cadastrado?"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPassWord" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPassWordLog" />
 
     <TextView
         android:id="@+id/textView2"
@@ -52,32 +53,30 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="Email"
+        android:text="Nome do Usuário"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/txtEmailAddress"
-        app:layout_constraintStart_toStartOf="@+id/txtEmailAddress" />
+        app:layout_constraintBottom_toTopOf="@+id/txtUserNameLog"
+        app:layout_constraintStart_toStartOf="@+id/txtUserNameLog" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
         android:text="Senha"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/txtPassWord"
-        app:layout_constraintStart_toStartOf="@+id/txtPassWord" />
+        app:layout_constraintBottom_toTopOf="@+id/txtPassWordLog"
+        app:layout_constraintStart_toStartOf="@+id/txtPassWordLog" />
 
     <EditText
-        android:id="@+id/txtEmailAddress"
+        android:id="@+id/txtUserNameLog"
         android:layout_width="@dimen/txt_width"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="128dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="108dp"
         android:ems="10"
-        android:inputType="textEmailAddress"
+        android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

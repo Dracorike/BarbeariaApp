@@ -11,7 +11,7 @@ import com.petruciostech.barbeariaapp.R;
 import com.petruciostech.barbeariaapp.back4app.ParseBarbearia;
 
 public class LogginActivity extends AppCompatActivity {
-    private EditText EMAIL_ADDRESS;
+    private EditText USER_NAME;
     private EditText PASSWORD;
     private ParseBarbearia DATA_BANK;
 
@@ -20,8 +20,8 @@ public class LogginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.loggin_activity);
 
-        EMAIL_ADDRESS = findViewById(R.id.txtEmailAddress);
-        PASSWORD = findViewById(R.id.txtPassWord);
+        USER_NAME = findViewById(R.id.txtUserNameLog);
+        PASSWORD = findViewById(R.id.txtPassWordLog);
         DATA_BANK = new ParseBarbearia();
     }
 
@@ -30,5 +30,8 @@ public class LogginActivity extends AppCompatActivity {
         startActivity(it);
     }
 
-
+    public void logar(View view){
+        DATA_BANK.loginUser(USER_NAME.getText().toString(), PASSWORD.getText().toString(),
+                this);
+    }
 }
