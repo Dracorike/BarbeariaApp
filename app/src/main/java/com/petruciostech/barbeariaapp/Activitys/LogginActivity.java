@@ -33,5 +33,11 @@ public class LogginActivity extends AppCompatActivity {
     public void logar(View view){
         DATA_BANK.loginUser(USER_NAME.getText().toString(), PASSWORD.getText().toString(),
                 this);
+        trocarTela();
+    }
+
+    public void trocarTela(){
+        Intent it = new Intent(this, MainActivity.class);
+        startActivity(it);
     }
 }

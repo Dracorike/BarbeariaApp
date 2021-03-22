@@ -1,11 +1,19 @@
 package com.petruciostech.barbeariaapp.back4app;
 
 import android.app.Application;
+import android.app.DownloadManager;
 import android.content.Context;
+import android.database.Cursor;
 import android.widget.Toast;
 
 import com.parse.Parse;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ParseBarbearia extends Application {
 
@@ -46,5 +54,14 @@ public class ParseBarbearia extends Application {
         });
     }
 
+    public List leia() throws ParseException {
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Cortes");
+        List lista = new ArrayList();
+
+        for(int i = 0; i < query.find().size(); i++){
+            lista.add(query.find().get(i).getString("NomedoCorte"));
+        }
+        return lista;
+    }
 
 }
