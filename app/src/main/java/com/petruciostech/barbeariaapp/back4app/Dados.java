@@ -1,6 +1,8 @@
 package com.petruciostech.barbeariaapp.back4app;
 
-public class Dados {
+import java.io.Serializable;
+
+public class Dados implements Serializable {
     private String nomeDoCorte;
     private double preco;
 

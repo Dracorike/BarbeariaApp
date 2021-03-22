@@ -63,8 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void payCut(){
         Intent it = new Intent(this, PayHairCut.class);
-        it.putExtra("nomeDoCorte", corte.getNomeDoCorte());
-        it.putExtra("Preco", corte.getPreco());
+        it.putExtra("CorteEscolhido", corte);
         startActivity(it);
     }
 

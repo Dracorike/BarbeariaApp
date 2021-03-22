@@ -2,18 +2,20 @@ package com.petruciostech.barbeariaapp.Activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.parse.ParseUser;
 import com.petruciostech.barbeariaapp.R;
 import com.petruciostech.barbeariaapp.back4app.ParseBarbearia;
 
 public class LogginActivity extends AppCompatActivity {
     private EditText USER_NAME;
     private EditText PASSWORD;
-    private ParseBarbearia DATA_BANK;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +24,6 @@ public class LogginActivity extends AppCompatActivity {
 
         USER_NAME = findViewById(R.id.txtUserNameLog);
         PASSWORD = findViewById(R.id.txtPassWordLog);
-        DATA_BANK = new ParseBarbearia();
     }
 
     public void cadastrar(View view){
@@ -31,13 +32,21 @@ public class LogginActivity extends AppCompatActivity {
     }
 
     public void logar(View view){
-        DATA_BANK.loginUser(USER_NAME.getText().toString(), PASSWORD.getText().toString(),
-                this);
-        trocarTela();
+        loginUserLocal(USER_NAME.getText().toString(), PASSWORD.getText().toString());
     }
 
-    public void trocarTela(){
-        Intent it = new Intent(this, MainActivity.class);
-        startActivity(it);
+    public void loginUserLocal(String userName, String passWord){
+        ParseUser.logInInBackground(userName, passWord,
+                (user, e) ->{
+                    if(user != null){
+                        Intent it = new Intent(LogginActivity.this, MainActivity.class);
+                        it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(it);
+                    }else{
+                        ParseUser.logOut();
+                        Toast.makeText(LogginActivity.this, e.getMessage(),
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }

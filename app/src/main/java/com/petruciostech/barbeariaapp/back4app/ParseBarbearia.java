@@ -1,11 +1,8 @@
 package com.petruciostech.barbeariaapp.back4app;
 
 import android.app.Application;
-import android.app.DownloadManager;
 import android.content.Context;
-import android.database.Cursor;
 import android.widget.Toast;
-
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -38,16 +35,6 @@ public class ParseBarbearia extends Application {
             if(e == null){
                 Toast.makeText(context, "Você foi cadastrado(a) com sucesso!",
                         Toast.LENGTH_SHORT).show();
-            }else{
-                Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    public void loginUser(String userName, String passWord, Context context){
-        ParseUser.logInInBackground(userName, passWord, (user, e) ->{
-            if(user != null){
-                Toast.makeText(context, "Você entrou!", Toast.LENGTH_SHORT).show();
             }else{
                 Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
